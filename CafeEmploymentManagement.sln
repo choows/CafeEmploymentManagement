@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeEmploymentManagement", "CafeEmploymentManagement\CafeEmploymentManagement.csproj", "{BE0E6DEC-8F8C-4D28-BA5E-8A7590EDF81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeEmploymentManagementTests", "CafeEmploymentManagementTests\CafeEmploymentManagementTests.csproj", "{5963C99F-1399-4ED8-B0BD-3E2BC83D2126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE0E6DEC-8F8C-4D28-BA5E-8A7590EDF81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0E6DEC-8F8C-4D28-BA5E-8A7590EDF81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0E6DEC-8F8C-4D28-BA5E-8A7590EDF81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0E6DEC-8F8C-4D28-BA5E-8A7590EDF81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5963C99F-1399-4ED8-B0BD-3E2BC83D2126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5963C99F-1399-4ED8-B0BD-3E2BC83D2126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5963C99F-1399-4ED8-B0BD-3E2BC83D2126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5963C99F-1399-4ED8-B0BD-3E2BC83D2126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
