@@ -22,7 +22,6 @@ namespace CafeEmploymentManagement.Resources.Commands.Update
 				cafe.Name = request.Name;
 				cafe.Description = request.Description;
 				cafe.Location = request.Location;
-				cafe.Active = request.Active;
 				cafe.UpdatedDateTime = DateTime.Now;
 
 				await _context.SaveChangesAsync(cancellationToken);

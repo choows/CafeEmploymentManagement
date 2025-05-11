@@ -56,8 +56,6 @@ namespace CafeEmploymentManagement.Models.DataContract
 		[Required]
 		[MaxLength(300)]
 		public string Location { get; set; }
-		[Required]
-		public bool Active { get; set; }
 	}
 
 	public class UpdateCafeRequest
@@ -71,8 +69,6 @@ namespace CafeEmploymentManagement.Models.DataContract
 		[Required]
 		[MaxLength(300)]
 		public string Location { get; set; }
-		[Required]
-		public bool Active { get; set; }
 	}
 
 	#endregion

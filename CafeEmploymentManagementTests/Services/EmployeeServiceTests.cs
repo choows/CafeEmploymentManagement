@@ -148,7 +148,6 @@ namespace CafeEmploymentManagement.Services.Tests
 			{
 				new Cafe()
 				{
-					Active = true,
 					CreatedDateTime = DateTime.Now,
 					Description = "test",
 					Employees = getMockData(),

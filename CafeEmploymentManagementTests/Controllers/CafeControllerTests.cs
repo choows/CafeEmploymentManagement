@@ -18,7 +18,6 @@ namespace CafeEmploymentManagement.Controllers.Tests
 			{
 				new Cafe()
 					{
-						Active = true,
 						CreatedDateTime = DateTime.Now,
 						Description = "description",
 						Employees = null,
@@ -49,7 +48,6 @@ namespace CafeEmploymentManagement.Controllers.Tests
 			{
 				new Cafe()
 					{
-						Active = true,
 						CreatedDateTime = DateTime.Now,
 						Description = "description",
 						Employees = null,
@@ -94,7 +92,6 @@ namespace CafeEmploymentManagement.Controllers.Tests
 			Mock<ICafeService> mock = new Mock<ICafeService>();
 			var request = new AddCafeRequest()
 			{
-				Active = true,
 				Description = "test",
 				Location = "location test",
 				Name = "test"
@@ -118,7 +115,6 @@ namespace CafeEmploymentManagement.Controllers.Tests
 			Mock<ICafeService> mock = new Mock<ICafeService>();
 			var request = new AddCafeRequest()
 			{
-				Active = true,
 				Description = "test",
 				Location = "location test",
 				Name = "test"
@@ -142,7 +138,6 @@ namespace CafeEmploymentManagement.Controllers.Tests
 			Mock<ICafeService> mock = new Mock<ICafeService>();
 			var request = new UpdateCafeRequest()
 			{
-				Active = true,
 				Description = "test",
 				Location = "location test",
 				Name = "test"
@@ -166,7 +161,6 @@ namespace CafeEmploymentManagement.Controllers.Tests
 			Mock<ICafeService> mock = new Mock<ICafeService>();
 			var request = new UpdateCafeRequest()
 			{
-				Active = true,
 				Description = "test",
 				Location = "location test",
 				Name = "test"

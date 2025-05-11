@@ -19,7 +19,6 @@ namespace CafeEmploymentManagement.Resources.Commands.Create
 				{
 					Name = request.Name,
 					Description = request.Description,
-					Active = request.Active,
 					Location = request.Location,
 					CreatedDateTime = DateTime.Now,
 					UpdatedDateTime = DateTime.Now,

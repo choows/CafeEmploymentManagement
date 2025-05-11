@@ -17,8 +17,6 @@ namespace CafeEmploymentManagement.Models
 		[MaxLength(300)]
 		public string Location { get; set; }
 		[Required]
-		public bool Active { get; set; }
-		[Required]
 		public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 		[Required]
 		public DateTime UpdatedDateTime { get; set; } = DateTime.Now;

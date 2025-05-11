@@ -41,7 +41,6 @@ namespace CafeEmploymentManagement.Services.Tests
 			CafeService model = new CafeService(mock.Object);
 			var request = mock_return.Select(x => new AddCafeRequest()
 			{
-				Active = x.Active,
 				Description = x.Description,
 				Location = x.Location,
 				Name = x.Name
@@ -52,7 +51,6 @@ namespace CafeEmploymentManagement.Services.Tests
 
 			//Assert 
 			Assert.IsNotNull(result);
-			Assert.IsTrue(result.Active);
 			Assert.AreEqual(result.Description, "test");
 		}
 
@@ -67,7 +65,6 @@ namespace CafeEmploymentManagement.Services.Tests
 			CafeService model = new CafeService(mock.Object);
 			var request = mock_return.Select(x => new UpdateCafeRequest()
 			{
-				Active = x.Active,
 				Description = x.Description,
 				Location = x.Location,
 				Name = x.Name
@@ -78,7 +75,6 @@ namespace CafeEmploymentManagement.Services.Tests
 
 			//Assert 
 			Assert.IsNotNull(result);
-			Assert.IsTrue(result.Active);
 			Assert.AreEqual(result.Description, "test");
 		}
 
@@ -97,7 +93,6 @@ namespace CafeEmploymentManagement.Services.Tests
 
 			//Assert 
 			Assert.IsNotNull(result);
-			Assert.IsTrue(result.Active);
 			Assert.AreEqual(result.Description, "test");
 		}
 
@@ -107,7 +102,6 @@ namespace CafeEmploymentManagement.Services.Tests
 			{
 				new Cafe()
 				{
-					Active = true,
 					CreatedDateTime = DateTime.Now,
 					Description = "test",
 					Employees = new List<Employee>(),

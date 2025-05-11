@@ -30,8 +30,8 @@ namespace CafeEmploymentManagement.Controllers
 					employees = c.Employees.Count(),
 					id = c.Id,
 					location = c.Location,
-				});
-				return response is not null ? Ok(response) : NotFound();
+				}).ToList();
+				return response is not null ? Ok(new { cafes = response }) : NotFound();
 			}
 			catch (Exception ex)
 			{

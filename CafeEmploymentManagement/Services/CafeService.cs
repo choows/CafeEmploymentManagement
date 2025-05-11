@@ -29,7 +29,6 @@ namespace CafeEmploymentManagement.Services
 		{
 			var command = new CreateCafeCommand()
 			{
-				Active = request.Active,
 				Description = request.Description,
 				Location = request.Location,
 				Name = request.Name,
@@ -42,7 +41,6 @@ namespace CafeEmploymentManagement.Services
 			var command = new UpdateCafeCommand()
 			{
 				Id = id,
-				Active = request.Active,
 				Description = request.Description,
 				Location = request.Location,
 				Name = request.Name
