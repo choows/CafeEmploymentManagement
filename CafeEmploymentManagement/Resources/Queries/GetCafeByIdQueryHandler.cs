@@ -1,7 +1,6 @@
 ﻿using CafeEmploymentManagement.Data;
 using CafeEmploymentManagement.Models;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CafeEmploymentManagement.Resources.Queries
 {
@@ -15,7 +14,19 @@ namespace CafeEmploymentManagement.Resources.Queries
 
 		public async Task<Cafe> Handle(GetCafeByIdQuery request, CancellationToken cancellation)
 		{
-			return _context.Cafes.Include(cafe => cafe.Employees).FirstOrDefault(cafe => cafe.Id == request.Id);
+			var results = (from cafe in _context.Cafes
+						   where cafe.Id == request.Id
+						   select new Cafe()
+						   {
+							   CreatedDateTime = cafe.CreatedDateTime,
+							   Description = cafe.Description,
+							   Employees = _context.Employees.Where(emp => emp.cafe == cafe).ToList(),
+							   Id = cafe.Id,
+							   Location = cafe.Location,
+							   Name = cafe.Name,
+							   UpdatedDateTime = cafe.UpdatedDateTime
+						   }).FirstOrDefault();
+			return results;
 		}
 	}
 }

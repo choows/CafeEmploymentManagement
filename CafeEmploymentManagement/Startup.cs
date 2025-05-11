@@ -17,6 +17,7 @@ namespace CafeEmploymentManagement
 		{
 			services.AddControllers();
 			services.AddCors();
+
 			if (Configuration.GetValue<bool>("SwaggerEnabled"))
 			{
 				services.AddEndpointsApiExplorer();

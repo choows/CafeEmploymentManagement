@@ -15,19 +15,16 @@ namespace CafeEmploymentManagement.Resources.Queries
 
 		public async Task<IEnumerable<Cafe>> Handle(GetCafeByLocationQuery request, CancellationToken cancellation)
 		{
-			if (string.IsNullOrEmpty(request.Location))
+			var query = _context.Set<Cafe>().AsQueryable();
+
+			if (!string.IsNullOrEmpty(request.Location))
 			{
-				return _context.Cafes
-					.Include(emp => emp.Employees)
-					.ToList();
+				query = query.Where(cafe => cafe.Location == request.Location);
 			}
-			else
-			{
-				return _context.Cafes
-					.Where(cafe => cafe.Location == request.Location)
-					.Include(emp => emp.Employees)
-					.ToList();
-			}
+			query = query.IgnoreAutoIncludes().AsNoTracking();
+			query = query.Include(x => x.Employees);
+			var result = query.ToList();
+			return result;
 		}
 	}
 }

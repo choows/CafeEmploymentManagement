@@ -22,16 +22,18 @@ namespace CafeEmploymentManagement.Controllers
 			try
 			{
 				var employee = await this._service.GetEmployees(cafe, cancellationToken);
+
 				var response = employee.Select(emp => new GetEmployeeResponse
 				{
 					name = emp.name,
 					email_address = emp.email_address,
-					cafe = emp.cafe?.Name,
+					cafeName = emp.cafe?.Name,
+					cafeId = emp.cafe?.Id,
 					day_worked = (int)(DateTime.Now - emp.StartDate).TotalDays,
 					id = emp.Id,
 					phone_number = emp.phone_number
 				}).ToList();
-				return response is not null ? Ok(response) : NotFound();
+				return response is not null ? Ok(new { employees = response }) : NotFound();
 			}
 			catch (Exception ex)
 			{

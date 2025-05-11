@@ -24,7 +24,7 @@ namespace CafeEmploymentManagement.Services
 				PhoneNumber = request.phone_number,
 				EmailAddrss = request.email_address,
 				Gender = request.gender,
-				StartDate = request.startDate,
+				StartDate = request.start_date,
 				cafeId = request.cafeId
 			};
 			return await _mediator.Send(command, cancellationToken);
@@ -54,7 +54,7 @@ namespace CafeEmploymentManagement.Services
 					Id = cafeId.Value
 				};
 				var cafe = await _mediator.Send(command, cancellationToken);
-				return cafe.Employees;
+				return cafe.Employees == null ? new List<Employee>() : cafe.Employees;
 			}
 			else
 			{
