@@ -10,7 +10,7 @@ namespace CafeEmploymentManagement.Resources.Commands.Update
 		public string EmailAddrss { get; set; }
 		public string PhoneNumber { get; set; }
 		public string Gender { get; set; }
-		public DateTime? StartDate { get; set; } = null;
+		public DateTime StartDate { get; set; }
 		public Guid? cafeId { get; set; } = null;
 	}
 }

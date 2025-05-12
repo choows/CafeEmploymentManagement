@@ -31,6 +31,8 @@ namespace CafeEmploymentManagement.Controllers
 					cafeId = emp.cafe?.Id,
 					day_worked = (int)(DateTime.Now - emp.StartDate).TotalDays,
 					id = emp.Id,
+					start_date = emp.StartDate,
+					gender = emp.gender,
 					phone_number = emp.phone_number
 				}).ToList();
 				return response is not null ? Ok(new { employees = response }) : NotFound();
@@ -47,8 +49,21 @@ namespace CafeEmploymentManagement.Controllers
 		{
 			try
 			{
-				var result = await _service.AddEmployeeAsync(request, cancellationToken);
-				return Ok(result);
+				var emp = await _service.AddEmployeeAsync(request, cancellationToken);
+
+				return Ok(new
+				{
+					employee = new GetEmployeeResponse
+					{
+						name = emp.name,
+						email_address = emp.email_address,
+						cafeName = emp.cafe?.Name,
+						cafeId = emp.cafe?.Id,
+						day_worked = (int)(DateTime.Now - emp.StartDate).TotalDays,
+						id = emp.Id,
+						phone_number = emp.phone_number
+					}
+				});
 			}
 			catch (Exception ex)
 			{
@@ -62,8 +77,20 @@ namespace CafeEmploymentManagement.Controllers
 		{
 			try
 			{
-				var result = await _service.UpdateEmployeeAsync(id, request, cancellationToken);
-				return Ok(result);
+				var emp = await _service.UpdateEmployeeAsync(id, request, cancellationToken);
+				return Ok(new
+				{
+					employee = new GetEmployeeResponse
+					{
+						name = emp.name,
+						email_address = emp.email_address,
+						cafeName = emp.cafe?.Name,
+						cafeId = emp.cafe?.Id,
+						day_worked = (int)(DateTime.Now - emp.StartDate).TotalDays,
+						id = emp.Id,
+						phone_number = emp.phone_number
+					}
+				});
 			}
 			catch (Exception ex)
 			{
@@ -77,8 +104,20 @@ namespace CafeEmploymentManagement.Controllers
 		{
 			try
 			{
-				var cafe = await this._service.RemoveEmployee(id, cancellationToken);
-				return Ok(cafe);
+				var emp = await this._service.RemoveEmployee(id, cancellationToken);
+				return Ok(new
+				{
+					employee = new GetEmployeeResponse
+					{
+						name = emp.name,
+						email_address = emp.email_address,
+						cafeName = emp.cafe?.Name,
+						cafeId = emp.cafe?.Id,
+						day_worked = (int)(DateTime.Now - emp.StartDate).TotalDays,
+						id = emp.Id,
+						phone_number = emp.phone_number
+					}
+				});
 			}
 			catch (Exception ex)
 			{

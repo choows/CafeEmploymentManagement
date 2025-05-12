@@ -39,28 +39,18 @@ namespace CafeEmploymentManagement.Services
 				Gender = request.gender,
 				PhoneNumber = request.phone_number,
 				Name = request.name,
-				StartDate = request.startDate,
+				StartDate = request.start_date,
 				cafeId = request.cafeId
 			};
 			return await _mediator.Send(command, cancellationToken);
 		}
 		public async Task<IEnumerable<Employee>> GetEmployees(Guid? cafeId, CancellationToken cancellationToken = default)
 		{
-
-			if (cafeId.HasValue)
+			var command = new GetAllEmployeeQuery()
 			{
-				var command = new GetCafeByIdQuery()
-				{
-					Id = cafeId.Value
-				};
-				var cafe = await _mediator.Send(command, cancellationToken);
-				return cafe.Employees == null ? new List<Employee>() : cafe.Employees;
-			}
-			else
-			{
-				return await _mediator.Send(new GetAllEmployeeQuery(), cancellationToken);
-			}
-
+				cafeId = cafeId
+			};
+			return await _mediator.Send<IEnumerable<Employee>>(command, cancellationToken);
 		}
 
 		public async Task<Employee> RemoveEmployee(string id, CancellationToken cancellationToken)

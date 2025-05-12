@@ -16,6 +16,7 @@ namespace CafeEmploymentManagement.Resources.Queries
 		{
 			var results = (from emp in _context.Employees
 						   join cafe in _context.Cafes on emp.cafe equals cafe
+						   where (request.cafeId.HasValue ? cafe.Id == request.cafeId.Value : true)
 						   select new Employee
 						   {
 							   Id = emp.Id,

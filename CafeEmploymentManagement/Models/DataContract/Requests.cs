@@ -39,7 +39,7 @@ namespace CafeEmploymentManagement.Models.DataContract
 		[Required]
 		[MaxLength(6)]
 		public string gender { get; set; }
-		public DateTime startDate { get; set; }
+		public DateTime start_date { get; set; }
 		public Guid? cafeId { get; set; } = null;
 	}
 	#endregion

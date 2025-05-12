@@ -15,6 +15,7 @@ namespace CafeEmploymentManagement.Resources.Commands.Create
 		{
 			using (var transaction = _context.Database.BeginTransaction())
 			{
+
 				var newEmployee = new Employee
 				{
 					Id = "dummy", ///the id will be auto replaced by the trigger in the database table 
@@ -24,9 +25,16 @@ namespace CafeEmploymentManagement.Resources.Commands.Create
 					gender = request.Gender,
 					CreatedDateTime = DateTime.Now,
 					LastUpdatedDateTime = DateTime.Now,
-					StartDate = request.StartDate,
-					cafe = request.cafeId.HasValue ? _context.Cafes.FirstOrDefault(cafe => cafe.Id == request.cafeId.Value) : null
+					StartDate = request.StartDate
 				};
+
+				if (request.cafeId.HasValue)
+				{
+					var cafequery = (from cafe in _context.Cafes
+									 where cafe.Id == request.cafeId.Value
+									 select cafe).FirstOrDefault();
+					newEmployee.cafe = cafequery;
+				}
 				await _context.Employees.AddAsync(newEmployee, cancellationToken);
 				await _context.SaveChangesAsync(cancellationToken);
 				await transaction.CommitAsync(cancellationToken);
